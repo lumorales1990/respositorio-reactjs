@@ -1,25 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import CartWidget from './components/CartWidget';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Instalado Correctamente!!!</p>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+        <Navbar/>   
+        <ItemListContainer>
+          <h2>Bienvenidos a Mendoza Argentina.</h2>
+          <p>
+            Un lugar para descansar y disfrutar tus vacaciones.
+          </p>
+          <img className='imagen' src="https://i.ytimg.com/vi/anXGaAcYXsE/maxresdefault.jpg"  height="40%" width="40%">
+          </img>
+        </ItemListContainer>
     </div>
+      
   );
 }
 
