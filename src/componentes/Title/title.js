@@ -1,9 +1,8 @@
 
 
-const Title = ({greeting}) => {
-
+const Title = () => {
     return(
-        <h1>{greeting}</h1>
+        <h1>BIENVENIDOS A NUESTRA TIENDA</h1>
     );
 }
 

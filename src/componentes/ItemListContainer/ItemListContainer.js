@@ -1,5 +1,7 @@
-import ItemDetail from '../ItemDetail/ItemDetail';
-import React, {useEffect, useState} from 'react';
+
+import ProductosList from '../ProductosList/ProductosList';
+import Title from '../Title/Title';
+import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 
 
@@ -12,23 +14,36 @@ const productos = [
     {id:6, image: "https://i.pinimg.com/originals/74/c6/22/74c6225517b5477a3875531241a3ee13.jpg", categoria: 'remera', title:"REMERA 3"},
 ];
 
-const ItemDetailContainer = () => {
 
-    const [data, setData] = useState({});
-    const {detalleId} = useParams();
-    
+
+const ItemListContainer = () => {
+
+    const [data, setData] = useState([]);
+
+    const {productoId} = useParams();
+
     useEffect(() => {
         const getData = new Promise(resolve => {
             setTimeout(() => {
-               resolve(productos); 
+                resolve(productos);
             }, 1000);
         });
-        getData.then(res => setData(res.find(producto => producto.id === parseInt(detalleId))));
-    }, [])
-    
-    return(
-        <ItemDetail data={data}/>
-    );
-} 
 
-export default ItemDetailContainer;
+        if (productoId){
+            getData.then(res => setData(res.filter(producto => producto.categoria === productoId)))
+    }else{
+        getData.then(res => setData(res));
+    }
+    }, [productoId])
+
+
+
+    return(
+        <>
+        <Title/>
+        <ProductosList data={data}/>
+        </>
+    );
+}
+
+export default ItemListContainer;
