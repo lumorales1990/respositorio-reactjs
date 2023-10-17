@@ -70,3 +70,6 @@ tr.addProduct(p4);
 console.log(tr.getProducts(3));
 
 console.log(tr.getProductById());
+
+
+
